@@ -1,0 +1,614 @@
+---
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Urban Cutz is a neighborhood barbershop in East Los Angeles offering sharp cuts, clean fades, and walk-in-friendly service." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>Urban Cutz | East Los Angeles Barbershop</title>
+    <style>
+      :root {
+        --bg: #f5f0eb;
+        --accent: #1e6fbf;
+        --text: #1a1a1a;
+        --surface: #ffffff;
+        --muted: #6b6b6b;
+        --cream: #ede8e3;
+        --shadow: 0 10px 24px rgba(26, 26, 26, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { display: block; width: 100%; height: auto; object-fit: cover; }
+      .container {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 80px 0;
+        border-top: 1px solid rgba(26, 26, 26, 0.06);
+      }
+      .section:first-of-type {
+        border-top: 0;
+      }
+      .eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+      .section-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(2rem, 4vw, 2.7rem);
+        line-height: 1;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin: 0 0 1.25rem;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--surface);
+        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+      }
+      .nav-center {
+        display: none;
+        font-size: 0.9rem;
+        color: var(--muted);
+        text-align: center;
+      }
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1rem;
+        border-radius: 999px;
+        background: var(--accent);
+        color: var(--surface);
+        font-weight: 700;
+      }
+      .nav-cta:hover {
+        background: #1558a0;
+        transition: background 0.2s ease;
+      }
+
+      .hero {
+        padding: 100px 0;
+        background: var(--bg);
+      }
+      .hero-copy {
+        border-left: 4px solid var(--accent);
+        padding-left: 20px;
+      }
+      .hero-grid {
+        display: grid;
+        gap: 2rem;
+        align-items: center;
+      }
+      .hero h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(3rem, 8vw, 4.5rem);
+        line-height: 0.95;
+        margin: 0 0 1rem;
+        text-transform: uppercase;
+        color: var(--text);
+        letter-spacing: 0.03em;
+      }
+      .hero-divider {
+        border-top: 1px solid #d4cfc9;
+        margin: 16px 0;
+      }
+      .hero-copy p,
+      .hero-copy a {
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 1.4rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0.9rem 1.25rem;
+        font-weight: 700;
+        border: 2px solid var(--accent);
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: var(--surface);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent);
+      }
+      .trust-bar {
+        background: var(--cream);
+        padding: 1rem 0;
+      }
+      .trust-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.55rem 1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+        text-align: center;
+      }
+      .trust-list span + span::before {
+        content: '•';
+        margin-right: 0.75rem;
+        color: var(--muted);
+      }
+
+      .services-grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .service-card {
+        background: var(--surface);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      }
+      .service-card h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.1rem;
+      }
+      .service-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .service-card strong {
+        display: inline-block;
+        margin-top: 0.7rem;
+        color: var(--accent);
+        font-size: 1.05rem;
+      }
+
+      .about-grid {
+        display: grid;
+        gap: 2rem;
+        align-items: center;
+      }
+      .section[id="about"]::before,
+      .section[id="services"] + .section[id="about"]::before {
+        content: none;
+      }
+      .about-copy p {
+        color: var(--muted);
+      }
+      .about-name {
+        font-weight: 700;
+        color: var(--text);
+        margin-top: 1rem;
+      }
+      .gallery-grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .gallery-grid .gallery-card {
+        border-radius: 8px;
+        overflow: hidden;
+        height: 250px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease;
+      }
+      .gallery-grid .gallery-card:hover {
+        transform: scale(1.02);
+      }
+      .gallery-grid .gallery-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .reviews-grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .review-card {
+        background: var(--surface);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        box-shadow: var(--shadow);
+      }
+      .stars {
+        color: var(--accent);
+        letter-spacing: 0.25em;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      .review-card p {
+        margin: 0 0 0.7rem;
+        color: var(--text);
+      }
+      .reviewer {
+        font-weight: 700;
+      }
+
+      .booking-cta {
+        background: var(--accent);
+        color: var(--surface);
+        padding: 4rem 0;
+      }
+      .booking-cta .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 1.3rem;
+      }
+      .booking-cta .btn-primary {
+        background: var(--surface);
+        color: var(--accent);
+        border-color: var(--surface);
+      }
+      .booking-cta .btn-secondary {
+        color: var(--surface);
+        border-color: var(--surface);
+      }
+
+      .site-footer {
+        background: var(--text);
+        color: #f6f2ee;
+        padding: 80px 0 90px;
+      }
+      .footer-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+      .footer h3 {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 0.05em;
+        margin: 0 0 0.6rem;
+        color: var(--surface);
+        font-size: 1.2rem;
+      }
+      .footer a,
+      .footer p {
+        color: rgba(255,255,255,0.8);
+        margin: 0.3rem 0;
+        display: block;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .footer-links a {
+        display: block;
+      }
+      .footer .brand {
+        color: var(--surface);
+        margin-bottom: 0.5rem;
+      }
+      .footer-bottom {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.7);
+        font-size: 0.92rem;
+      }
+
+      .mobile-bar {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 100;
+        border-top: 2px solid rgba(26,26,26,0.12);
+      }
+
+      .mobile-bar a {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 0;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+      }
+
+      .mobile-bar .call-btn {
+        background: #1e6fbf;
+        color: #ffffff;
+      }
+
+      .mobile-bar .book-btn {
+        background: #1a1a1a;
+        color: #ffffff;
+      }
+
+      @media (min-width: 700px) {
+        .nav-center { display: block; }
+        .hero {
+          min-height: 500px;
+        }
+        .hero h1 {
+          font-size: 64px;
+          white-space: nowrap;
+        }
+        .hero-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: 3rem;
+        }
+        .services-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .about-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .reviews-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .footer-grid {
+          grid-template-columns: 1.2fr 0.8fr 0.8fr;
+        }
+      }
+
+      @media (max-width: 699px) {
+        body {
+          padding-bottom: 70px;
+        }
+        .section {
+          padding: 48px 0;
+        }
+        .hero,
+        .booking-cta,
+        .site-footer {
+          padding: 60px 0;
+        }
+        .nav {
+          padding: 0 1rem;
+        }
+        .brand {
+          font-size: 1.5rem;
+        }
+        .hero h1 {
+          font-size: 48px;
+        }
+        .hero-image {
+          height: 280px;
+        }
+        .services-grid {
+          gap: 0.75rem;
+        }
+        .service-card {
+          padding: 1rem;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-grid .gallery-card {
+          height: 160px;
+        }
+        .mobile-bar {
+          display: flex;
+        }
+        .site-footer { padding-bottom: 76px; }
+      }
+
+      @media (min-width: 700px) {
+        .mobile-bar { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="#" aria-label="Urban Cutz Home">
+          <img src="/logo.svg" alt="Urban Cutz" height="40" style="display:block;" />
+        </a>
+        <div class="nav-center">Mon–Sat 9AM–8PM · Sun 10AM–6PM</div>
+        <a class="nav-cta" href="#booking">Book Now</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Los Angeles, CA</div>
+            <h1>Walk In Sharp. Walk Out Fresh.</h1>
+            <p>📍 <a href="https://maps.google.com/?q=2847+E+Ces%C3%A1r+Ch%C3%A1vez+Ave+East+LA" target="_blank" rel="noreferrer">2847 E César Chávez Ave, East LA</a></p>
+            <p>📞 <a href="tel:+13235550187" style="color: var(--accent); font-weight: 700;">(323) 555-0187</a></p>
+            <div class="hero-divider"></div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#booking">Book Appointment</a>
+              <a class="btn btn-secondary" href="tel:+13235550187">Call Now</a>
+            </div>
+          </div>
+          <div style="border-radius:12px; overflow:hidden; height:500px; box-shadow:0 24px 64px rgba(0,0,0,0.18);">
+            <img src="/hero.jpg" alt="Carlos Mendez cutting a fade at Urban Cutz barbershop" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-bar" aria-label="Trust indicators">
+        <div class="container trust-list">
+          <span>⭐ 4.9 Google Rating (200+ reviews)</span>
+          <span>📍 East Los Angeles</span>
+          <span>✂️ Walk-ins Welcome</span>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <h2 class="section-title">Our Services</h2>
+          <div class="services-grid">
+            <article class="service-card">
+              <h3>Haircut</h3>
+              <p>Clean, classic cut with a tailored finish.</p>
+              <strong>$30</strong>
+            </article>
+            <article class="service-card">
+              <h3>Lineup</h3>
+              <p>Sharp edges and crisp detail for every style.</p>
+              <strong>$15</strong>
+            </article>
+            <article class="service-card">
+              <h3>Fade</h3>
+              <p>Precision fades that look fresh from day one.</p>
+              <strong>$35</strong>
+            </article>
+            <article class="service-card">
+              <h3>Beard Trim</h3>
+              <p>Neat shape-ups and clean lines for your beard.</p>
+              <strong>$20</strong>
+            </article>
+            <article class="service-card">
+              <h3>Haircut + Beard</h3>
+              <p>A complete refresh with a polished finish.</p>
+              <strong>$45</strong>
+            </article>
+            <article class="service-card">
+              <h3>Kids Cut</h3>
+              <p>Easygoing cuts for younger clients and first-timers.</p>
+              <strong>$20</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <div class="about-copy">
+            <h2 class="section-title">The Neighborhood's Spot Since 2018</h2>
+            <p>Urban Cutz isn't a chain or a franchise. We're East LA barbers who take pride in every cut, every client, every time. Walk-ins always welcome — appointments get priority. Come see why the neighborhood keeps coming back.</p>
+            <p class="about-name">Head Barber: Carlos Mendez</p>
+          </div>
+          <div class="about-image" style="border-radius:8px; overflow:hidden;">
+            <img src="/shop.jpg" alt="Urban Cutz barbershop interior showing chairs and mirrors" style="width:100%; height:100%; object-fit:cover; border-radius:8px; min-height:350px;" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery">
+        <div class="container">
+          <h2 class="section-title">Our Work</h2>
+          <div class="gallery-grid">
+            <div class="gallery-card"><img src="/gallery-1.jpg" alt="Clean fade haircut" /></div>
+            <div class="gallery-card"><img src="/gallery-2.jpg" alt="Sharp lineup detail" /></div>
+            <div class="gallery-card"><img src="/gallery-3.jpg" alt="Fade haircut from behind" /></div>
+            <div class="gallery-card"><img src="/gallery-4.jpg" alt="Scissors and comb technique" /></div>
+            <div class="gallery-card"><img src="/gallery-5.jpg" alt="Precision fade" /></div>
+            <div class="gallery-card"><img src="/gallery-6.jpg" alt="Beard trim close up" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reviews">
+        <div class="container">
+          <h2 class="section-title">What People Are Saying</h2>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>Best fade in East LA, hands down. Carlos doesn't rush you and the lineup is always clean.</p>
+              <div class="reviewer">— Marcus T.</div>
+            </article>
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>Been coming here for 3 years. Never going anywhere else. Walk-in friendly and always on point.</p>
+              <div class="reviewer">— Javier R.</div>
+            </article>
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <p>Brought my son for his first real haircut. The guys made him feel comfortable and he looked amazing.</p>
+              <div class="reviewer">— Diana L.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="booking-cta" id="booking">
+        <div class="container">
+          <h2 class="section-title" style="color: #fff;">Ready For A Fresh Cut?</h2>
+          <p style="margin: 0; font-size: 1.05rem;">2847 E César Chávez Ave · (323) 555-0187 · Open 7 Days</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="tel:+13235550187">Book Appointment</a>
+            <a class="btn btn-secondary" href="tel:+13235550187">Call Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <img src="/logo.svg" alt="Urban Cutz" height="32" style="display:block; margin-bottom:0.5rem; filter: brightness(0) invert(1);" />
+          <p>2847 E César Chávez Ave, East LA, CA 90033</p>
+          <p>Mon–Sat 9AM–8PM</p>
+          <p>Sun 10AM–6PM</p>
+        </div>
+        <div>
+          <h3>Navigate</h3>
+          <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#booking">Book Now</a>
+          </div>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <a href="tel:+13235550187" style="display: block; margin-bottom: 6px;">(323) 555-0187</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noreferrer" style="display: block; margin-bottom: 6px;">Instagram</a>
+          <a href="https://www.facebook.com" target="_blank" rel="noreferrer" style="display: block; margin-bottom: 6px;">Facebook</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">© 2025 Urban Cutz Barbershop. East Los Angeles.</div>
+    </footer>
+
+  </body>
+  <nav class="mobile-bar" aria-label="Mobile call to action">
+    <a class="call-btn" href="tel:+13235550187">📞 Call Now</a>
+    <a class="book-btn" href="#booking">📅 Book Now</a>
+  </nav>
+</html>
